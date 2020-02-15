@@ -1,0 +1,25 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block content %}
+    <div class="container center">
+        <p class="bg-primary text-center"><b>【基本信息】</b></p>
+        <p class="bg-info text-center">计算机名:{{ c_name }}</p>
+        <p class="bg-warning text-center">系统版本:{{ c_os_version }}</p>
+        <p class="bg-danger text-center">CPU:{{ c_cpu }}</p>
+        <p class="bg-info text-center">CPU数量:{{ c_cpu_sum }}</p>
+        <p class="bg-success text-center">开机时间:{{ c_start_up }}</p>
+        <p class="bg-info text-center">运行时间:{{ c_runtime }}</p>
+        <p class="bg-primary text-center"><b>【网络信息】</b></p>
+        <p class="bg-warning text-center">IP地址:{{ c_ip }}</p>
+        <p class="bg-success text-center">地理位置:{{ c_adress }}</p>
+        <p class="bg-primary text-center"><b>【硬盘信息】</b></p>
+        {% for foo in c_disk_info %}
+            <p class="bg-info text-center">总空间:{{ foo['disk_space'] }}G</p>
+            <p class="bg-warning text-center">已使用空间:{{ foo['disk_used'] }}G</p>
+            <p class="bg-danger text-center">剩余空间:{{ foo['disk_free'] }}G</p>
+            <p class="bg-success text-center">使用百分比:{{ foo['disk_used_percent'] }}%</p>
+            </div>
+            <h5 class="text-center te">系统时间:{{ service_time }}</h5>
+        {% endfor %}
+{% endblock %}
+
